@@ -1,0 +1,143 @@
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 300px; 
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+
+	table {
+		border-spacing:1px;
+		border: 10px;
+		width: 70%;
+		height: 50%;
+		position: relative;
+		left: 5%;
+		align-content: center;
+	}
+
+	tr {
+		height: 30px;
+		align-content: space-around;
+		border-collapse: collapse;
+	}
+
+	td {
+	   align-content:inherit;     
+		}
+	.float div {
+		position:relative;
+		display: inline-block;
+		width: 200px;
+		height: 120px;
+		margin: 10px;
+		font-size:22px;
+		padding-left:5%;
+		padding-top:9%;
+		float:center;
+	 }
+	 .floatSmall div {
+		position:relative;
+		display: inline-block;
+		width: 150px;
+		height: 60px;
+		margin: 1%;
+		font-size:22px;
+		padding-left:1%;
+		padding-top:1%;
+		float:left;
+	 }
+	
+	.float div:hover{
+			background-color: #ddeeee;
+			color: black;
+	}
+
+	 .techyellow {
+		background-color: #ffcc00;
+	}
+	.techdarkorange {
+		background-color: #ff9900;
+		color: #000;
+	}
+	.techorange {
+		background-color: #e98b45;
+	}
+	.laborange {
+		background-color: #ff8c00;
+	}
+	.techred {
+		background-color: #ff6600;
+	}
+	.labred {
+		background-color: #e91d27;
+	}
+	.techdarkred {
+		background-color: #e91d27;
+	}
+	.techblue {
+		background-color: #00BCF2;
+	}
+	.textblue {
+		color: #000;
+	}
+	.techdarkblue {
+		background-color: #006699;
+	}
+	.techgreen {
+		background-color: #00cc66;
+	}
+	.techlightgreen {
+		background-color: #99cc00;
+	}
+	.techgreennew {
+		background-color: #47ad61;
+	}
+	.techolive {
+		background-color: #99cc00;
+	}
+	.techaqua {
+		background-color: #00cccc;
+	}
+	.techtrans {
+		background-color: #eff6f9;
+	}
+	.techlightgray {
+		background-color: #eceff1;
+	}
+	.technewpurple {
+		background-color: #9B4F96;
+	}
+	.white {
+		color: #fff !important;
+}
+
