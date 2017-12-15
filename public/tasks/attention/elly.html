@@ -1,0 +1,60 @@
+<head>
+    <title></title>
+	<link rel="stylesheet" type="text/css" href="../css/neuro.css">
+</head>
+
+
+<div ng-keyup="KeyDownF($event.keyCode)" ng-controller="ctrlElly"  ng-init="Init()" ">
+	<div class="floatSmall" ng-click="taskExit()"> 
+		<div ng-if="domain == 'Attention'">
+			<a  class="white" href="./#!attention"> 
+					<div class="floatSmall techolive" >
+						< Tasks
+					</div>
+			</a>
+		</div>
+		<div ng-if="domain == 'Impulsivity'">
+			<a  class="white" href="./#!impulsivity"> 
+					<div class="floatSmall technewpurple" >
+						< Tasks
+					</div>
+			</a>
+		</div>
+		<div ng-if="domain == 'Mental Flexibility'">
+			<a  class="white" href="./#!mentalflexibility"> 
+					<div class="floatSmall techblue" >
+						< Tasks
+					</div>	
+				</a>
+		</div>
+		
+	</div>
+   <table style="margin:1%" border="1" >
+			<th><h3>{{taskName}}</h3> <p><h3>Instructions : {{taskInstructions}}</h3></p>
+			<!--<p> Press Left or Right buttons when you are ready</p> -->
+			</th>
+            <!--<tr>
+                <td align="{{h_align}}" valign="{{v_align}}"><img src="../res/{{imageName}}" width="250" height="250" /></td>
+				
+			</tr>-->
+			<tr>
+				<td>
+					<canvas id="canvas">
+					<!--	<div style="display:none;">
+						  <img id="imageSource" src="../res/{{imageName}}">
+						</div>
+					-->	
+					</canvas>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input style="float:left" type="button" value="Left          " ng-click="clickLeft()">
+					<label style="float:center">   Hits : {{hits}}, Misses : {{misses}}</label>
+					<input style="float:right" type="button" width="100px" height="40px" value="Right        " ng-click="clickRight()">
+				</td>
+			</tr>
+        </table>
+		<!--<pre>{{message}} </pre>-->
+</div>
