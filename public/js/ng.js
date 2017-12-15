@@ -233,12 +233,12 @@ rootApp.factory('dataFactory',  function($http, $rootScope) {
 	//var host_addr = "http://192.168.43.71";
 	//var port = "8080";
 
-	//var host_addr = "mongodb://neuroAdmin:time2log123*@neurotest-shard-00-00-pxkfq.mongodb.net:27017,neurotest-shard-00-01-pxkfq.mongodb.net:27017,neurotest-shard-00-02-pxkfq.mongodb.net:27017/test?ssl=true&replicaSet=NeuroTest-shard-0&authSource=admin";
-	//var base_url = host_addr + "/";
+	var host_addr = "mongodb://neuroAdmin:time2log123*@neurotest-shard-00-00-pxkfq.mongodb.net:27017,neurotest-shard-00-01-pxkfq.mongodb.net:27017,neurotest-shard-00-02-pxkfq.mongodb.net:27017/test?ssl=true&replicaSet=NeuroTest-shard-0&authSource=admin";
+	var base_url = host_addr + "/";
 	
-	var host_addr = "https://192.168.43.71";
-	var port = "8443";
-	var base_url = host_addr +":"+ port + "/";
+	//var host_addr = "https://192.168.43.71";
+	//var port = "8443";
+	//var base_url = host_addr +":"+ port + "/";
 	
 	
 	
