@@ -1,0 +1,55 @@
+﻿<head>
+    <meta charset="utf-8">
+    <title></title>
+	<link rel="stylesheet" type="text/css" href="../css/neuro.css">
+</head>
+
+<div style="text-align:center">
+	<!--<h2>Welcome to Samvid Neuro Intervention Programme</h2>-->
+	<h2>Welcome to Agile Minds</h2>
+	<h4>Enrich lives through new connections</h4>
+</div>
+<div ng-controller="ctrlHome">
+	<table>
+	<tr text-align="top">
+		<td width="50%">
+		<p ng-if="userName"> <h3> Welcome {{userName}}  </h3></p>
+		<h3>In today’s highly competitive world, we all find ourselves in what seems to be a never-ending rat race, each trying to come out on top. Success is dependent on a plethora of intact mental faculties such as mental flexibility, concentration, persistence, logical thinking and reasoning, judgement and decision making, goal setting, and ignoring distractions to name only a few. These mental faculties can all be broadly classified under three cognitive abilities: attention, executive control an inhibition.
+		</h3>
+		</td>
+		<td>
+		<div class="float"> 
+			<a  class="white" href="#!attention"> 
+				<div class="float techolive" >
+					Attention 	
+				</div>
+			</a>
+			<a  class="white" href="#!impulsivity"> 
+				<div class="float technewpurple" >
+					Impulsivity	
+				</div>
+			</a>
+			<a  class="white" href="#!workingmemory"> 
+				<div class="float laborange" >
+					Working Memory
+				</div>
+			</a>
+			<a  class="white" href="#!mentalflexibility"> 
+				<div class="float techblue" >
+					Mental Flexibility
+				</div>
+			</a>
+			<!--display only if we know who is the user is-->
+				<a  class="white" href="#!assessmentReport"> 
+						<div ng-if="userName" class="float techyellow" >
+							Assessment Report
+						</div>
+				</a>
+		</div>	
+		
+		</td>
+	</tr>
+
+	</table>
+</div>
+

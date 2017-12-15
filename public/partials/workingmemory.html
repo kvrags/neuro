@@ -1,0 +1,25 @@
+<head>
+    <meta charset="utf-8">
+    <title></title>
+	<link rel="stylesheet" type="text/css" href="../css/hexagon.css">
+   
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+
+</head>
+  <div style="margin:2%" ng-controller="ctrlWorkingMemory" ng-init="Init()">
+ 		<!--<p> <h1> Working hard for the memory sake! you are in 'Working Memory' Cognitive area  </h1></p>-->
+ 		<p> <h1>Lets multi-task!</h1></p>
+		<p> <h3><div ng-if="message">{{message}} </div> </h3>	</p>		
+			<ul id="hexGrid" >
+				  <li class="hex" ng-repeat="task in tasks">
+					<div class="hexIn" > 
+					  <a class="hexLink" ng-href="#!{{task.file}}/{{task.name}}/{{task.level}}">
+						<img src="../res/orangeRect.jpg" alt=""/>
+						<h2>{{task.name}}</h2>
+					 </a>
+					</div>
+				  </li>
+			</ul>
+	</div>	
+	<!--<pre>{{message | json}} <pre>-->
+</div>

@@ -1,0 +1,147 @@
+
+<head>
+ 
+<style>
+
+
+.axis .domain {
+  display: none;
+}
+
+.bar div { /* if declared div.bar then display changes*/
+	display: inline-block;
+	width: 50px;
+	height: 75px;//75px;
+	background-color: teal;
+	margin-right: 2px;
+	font: 10px sans-serif;
+	font-style:white;
+	padding:3px;
+	
+}
+</style>
+</head>
+<body>
+<div style="margin:1%" ng-app="neuroApp" ng-controller="ctrlassessmentReport">
+	<h1>Assessment Report for : {{fname}} {{lname}} <h1>
+	<p>Your Scores :<!--{{dataSet}}--></p>
+
+<!--	<div class="bar">
+		<bars avg="dataSetMedian" data="dataSet"  scale="6" ></bars>
+	</div>
+	<h3>
+		<p>Median Scores: Attention: {{profileMedian.Attention}}  Working Memory : {{profileMedian.WorkingMemory}} Impulsivity: {{profileMedian.Impulsivity}} Mental Flexibility:{{profileMedian.MentalFlexibility}}</p>
+		<p>Your Score    :Attention: {{attention}}  Working Memory : {{workingMemory}} Impulsivity: {{impulsivity}} Mental Flexibility:{{mentalFlexibility}}</p>
+	</h3>
+	-->
+	<h4>
+	<table border="1px">
+	<tr >
+		<th style="text-align:center" width="150px"></th><th style="text-align:center" width="150px">Attention</th><th style="text-align:center" width="150px">Working Memory</th> <th style="text-align:center" width="150px">Impulsivity</th><th style="text-align:center" width="150px">Mental Flexibility</th><th style="text-align:center" width="150px">Assessed On</th>
+	</tr>	
+	<tr style="text-align:center">	
+		<td>Cut-Off Score</td> 
+		<td>{{profileMedian.Attention}} </td>
+		<td>{{profileMedian.WorkingMemory}} </td>
+		<td>{{profileMedian.Impulsivity}} </td>
+		<td>{{profileMedian.MentalFlexibility}} </td>
+		<td>-</td>
+	</tr>
+	<tr style="text-align:center" ng-repeat="score in scores track by $index">
+		<td>Score {{$index+1}}</td> 
+		<td>{{score.Attention}} </td>
+		<td>{{score.WorkingMemory}} </td>
+		<td>{{score.Impulsivity}} </td>
+		<td>{{score.MentalFlexibility}}</td>
+		<td>{{score.Date}}</td>
+	</tr>
+	</table>
+	</h4>
+	<div>
+	<p> <h4>Note : This is not the final report which will be only available after completing all the recommended tasks.
+	</h4></p>
+
+	<p>Show Tasks progress:<input type="checkbox" ng-model="checked"></p>
+	<div ng-repeat="task in tasks" ng-show="checked"> 
+	<table border="10px" style="width:350px">
+		<tr>
+			<td>{{task.name}}</td>
+			<td  width="200px">
+				<span ng-if="task.name == 'Smiley Heart Level 1' ">
+					<span><b>Hits / Misses</b></span>
+					<div ng-repeat="score in task.scores track by $index">
+						<span>Attempt {{$index+1}} : {{score.hits}} / {{score.misses}}</span>
+					</div>
+				</span>	
+				<span ng-if="task.name == 'Smiley Heart Level 2' ">
+					<span><b>Hits / Misses</b></span>
+					<div ng-repeat="score in task.scores track by $index">
+						<span>Attempt {{$index+1}} : {{score.hits}} / {{score.misses}}</span>
+					</div>
+				</span>	
+				<span ng-if="task.name == 'Smiley Heart Level 3' ">
+					<span><b>Hits / Misses</b></span>
+					<div ng-repeat="score in task.scores track by $index">
+						<span>Attempt {{$index+1}} : {{score.hits}} / {{score.misses}}</span>
+					</div>
+				</span>	
+
+				<span ng-if="task.name == 'White Squares Level 1' ">
+					<span><b>Right / Wrong</b></span>
+					<div ng-repeat="score in task.scores track by $index">
+						<span>Attempt {{$index+1}} : {{score.right}} / {{score.wrong}}</span>
+					</div>
+				</span>	
+				<span ng-if="task.name == 'White Squares Level 2' ">
+					<span><b>Right / Wrong</b></span>
+					<div ng-repeat="score in task.scores track by $index">
+						<span>Attempt {{$index+1}} : {{score.right}} / {{score.wrong}}</span>
+					</div>
+				</span>
+				<span ng-if="task.name == 'White Squares Level 3' ">
+					<span><b>Right / Wrong</b></span>
+					<div ng-repeat="score in task.scores track by $index">
+						<span>Attempt {{$index+1}} : {{score.right}} / {{score.wrong}}</span>
+					</div>
+				</span>				
+				<span ng-if="task.name == 'White Squares Level 4' ">
+					<span><b>Right / Wrong</b></span>
+					<div ng-repeat="score in task.scores track by $index">
+						<span>Attempt {{$index+1}} : {{score.right}} / {{score.wrong}}</span>
+					</div>
+				</span>
+				<span ng-if="task.name == 'White Squares Level 5' ">
+					<span><b>Right / Wrong</b></span>
+					<div ng-repeat="score in task.scores track by $index">
+						<span>Attempt {{$index+1}} : {{score.right}} / {{score.wrong}}</span>
+					</div>
+				</span>
+				<span ng-if="task.name == 'Elly Level 1' ">
+					<span><b>Hits / Misses</b></span>
+					<div ng-repeat="score in task.scores track by $index">
+						<span>Attempt {{$index+1}} : {{score.hits}} / {{score.misses}}</span>
+					</div>
+				</span>
+				<span ng-if="task.name == 'Elly Level 2' ">
+					<span><b>Hits / Misses</b></span>
+					<div ng-repeat="score in task.scores track by $index">
+						<span>Attempt {{$index+1}} : {{score.hits}} / {{score.misses}}</span>
+					</div>
+				</span>
+				<span ng-if="task.name == 'Elly Level 3' ">
+					<span><b>Hits / Misses</b></span>
+					<div ng-repeat="score in task.scores track by $index">
+						<span>Attempt {{$index+1}} : {{score.hits}} / {{score.misses}}</span>
+					</div>
+				</span>
+	
+			</td>
+		</tr>
+	</table>
+	
+	</div>
+	</div>
+
+</div>
+</body>
+

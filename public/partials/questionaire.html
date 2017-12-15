@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Questionaire</title>
+</head>
+<body>
+    <form class="form-horizontal" name="formRegister">
+        <div class="form-group">
+            <div class="col-md-1">
+                <label>Question1 :</label> What will do if you fell angry?
+            </div>
+            <div class="col-md-5">
+                <input type="text" name="name" class="form-control" ng-model="model.name" required>
+
+                <div class="alert alert-danger" ng-show="(formRegister.name.$touched || formRegister.$submitted) && formRegister.name.$error.required">
+                    Name is required
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-5">
+                <!-- <input type="submit" value="Register" class="btn btn-primary" ng-click="formRegister.$valid && Register(model)"> -->
+                <input type="submit" value="Register" class="btn btn-primary" ng-click="Register(model)" ng-disabled="formRegister.$invalid">
+
+                <button class="btn btn-default" ng-click="reset()">Reset</button>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>

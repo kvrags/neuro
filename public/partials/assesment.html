@@ -1,0 +1,235 @@
+﻿    <div style="margin:1%" ng-controller="ctrlAssesment" ng-init="Init()">
+		<h2> Assessment Section</h2> {{date}}
+	    <span class="container" id="assesseeExiting" ng-if="bAssesseDetails == 'update'">
+			<p><h3>Found {{progressCount}} assessment(s) for {{fname}} {{lname}}.</h3></p>
+			<p> <h3>Click button below to do another assesment.</h3> </p>
+			<input type="submit" value="Assess Again" class="btn btn-primary" ng-click="assessAgain()" />
+		</span>
+        <span ng-if="bAssesseDetails == 'new'">
+		<h4> To serve you better please provide following information:</h4>
+
+            <form class="form-horizontal" name="formUser"  novalidate>
+                <!--Assesse profile details-->
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label>First Name</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" name="fname" ng-model="model.fname" autofocus   required>
+                        <div class="alert alert-danger" ng-show="(formUser.fname.$touched || formUser.$submitted) && formUser.fname.$error.required">
+                            First name is required
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <div class="col-md-2">
+                        <label>Last Name</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" name="lname" ng-model="model.lname" autofocus   required>
+                        <div class="alert alert-danger" ng-show="(formUser.lname.$touched || formUser.$submitted) && formUser.lname.$error.required">
+                            Last name is required
+                        </div>
+                    </div>
+                </div>
+
+				<div class="form-group">
+                    <div class="col-md-2">
+                        <label>Mobile No.</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" name="mobile" ng-model="model.mobile" required>
+                        <div class="alert alert-danger" ng-show="(formUser.mobile.$touched || formUser.$submitted) && formUser.mobile.$error.required">
+                            Mobile number is required
+                        </div>
+                    </div>
+                </div>
+		
+				<!--<div class="form-group">
+                    <div class="col-md-2">
+                        <label>eMail</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="email" name="email" ng-model="model.email" >
+                        <div class="alert alert-danger" ng-show="(formUser.email.$touched || formUser.$submitted) && formUser.email.$error.required">
+                            eMail is required
+                        </div>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label>Age Group</label>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="ageGroup" class="form-control" ng-model="model.ageGroup" ng-required="true">
+                            <option value="6to16">6 to 16 years</option>
+                            <option value="16to25">16 to 25 years</option>
+                            <option value="26to35">26 to 35 years</option>
+                            <option value="36to50">36 to 50 years</option>
+                            <option value="above51">Above 50 years</option>
+                            <option value="above65">Above 65 years</option>
+                        </select>
+                        <div class="alert alert-danger" ng-show="(formUser.ageGroup.$touched || formUser.$submitted) && formUser.ageGroup.$error.required">
+                            Age Group is required
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label>Occupation</label>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="occupation" ng-model="model.occupation" ng-options="item.type for item in occupationType" ng-required="true"></select>
+                        <div class="alert alert-danger" ng-show="(formUser.occupation.$touched || formUser.$submitted) && formUser.occupation.$error.required">
+                            Occupation is required
+                        </div>
+                    </div>
+                </div><!-- end div form-group -->
+
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label>Stream</label>
+                    </div>
+                    <div class="col-md-3">
+                        <select name="stream" ng-model="model.stream" ng-options="item for item in model.occupation.data" ></select>
+                    </div>
+                    <div class="alert alert-danger" ng-show="(formUser.stream.$touched || formUser.$submitted) && formUser.stream.$error.required">
+							stream is required
+                    </div>
+
+                </div><!-- end div form-group -->
+	            <div class="form-group">
+                    <div class="col-md-2">
+                        <label>City Type</label>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="cityType" class="form-control" ng-model="model.cityType" ng-required="true">
+                            <option value="urban">Urban</option>
+                            <option value="rural">Rural</option>
+                        </select>
+                        <div class="alert alert-danger" ng-show="(formUser.cityType.$touched || formUser.$submitted) && formUser.cityType.$error.required">
+                            City type is required
+                        </div>
+                    </div>
+                </div>
+
+				<!--<div class="form-group">
+                    <div class="col-md-2">
+                        <label>City</label>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="city" ng-model="model.city" ng-options="i for i in city" ng-required="true"></select>
+                        <div class="alert alert-danger" ng-show="(formUser.city.$touched || formUser.$submitted) && formUser.city.$error.required">
+                            City name is required
+                        </div>
+                    </div>
+					
+				</div>--> 
+				<!--<div class="form-group">
+                    <div class="col-md-2">
+                        <label>State</label>
+                    </div>
+                    <div class="col-md-3">
+                        <select name="state" ng-model="model.state" ng-options="i for i in state" ng-required="true"></select>
+                        <div class="alert alert-danger" ng-show="(formUser.state.$touched || formUser.$submitted) && formUser.state.$error.required">
+                            State name is required
+                        </div>
+                    </div>
+                </div>-->
+				<!--<div class="form-group">
+                    <div class="col-md-2">
+                        <label>Country</label>
+                    </div>
+                    <div class="col-md-3">
+                        <select placeholder="India" name="country" ng-model="model.countries" ng-options="country in countries" ng-required="true"></select>
+                        <div class="alert alert-danger" ng-show="(formUser.country.$touched || formUser.$submitted) && formUser.country.$error.required">
+                            Country name is required
+                        </div>
+                    </div>
+                </div>-->
+				<!--<table> tag introduces a left margin of 1% -->
+				<div class="form-group">
+					<div class="col-md-2">
+						<label>Institution</label>
+					</div>
+					<div class="col-md-2">
+							<input type="text" ng-model="InstiName"  value="InstiName" readonly required>
+					</div>	
+					<div class="alert alert-danger" ng-show="(formUser.InstiName.$touched || formUser.$submitted) && formUser.InstiName.$error.required">
+						Institution name is required
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" ng-model="query" placeholder="enter name" value="query">
+					</div>
+					<div class="col-md-2">
+						<ul ng-if="query" ng-repeat="i in institutes | filter:query | orderBy: 'name' ">
+							<lable ng-click="selectInstitute(i)">{{i.name}}</lable>
+						</ul>
+					</div>	
+				</div>
+				
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-5">
+                        <!--  <input type="submit" style="cursor:wait" value="Submit" class="btn btn-primary" ng-click="form.$valid && Register(model)" /> -->
+                        <input type="submit"   value="Create New Assessee" class="btn btn-primary" ng-click="CreateNewAssessee(model)" ng-disabled="formUser.$invalid || !bEnable" />
+                    </div>
+                </div>
+            </form>
+            <!--<pre>{{message|json}}</pre>-->
+        </span>
+        <span class="container" id="questions" ng-if="bAssesseDetails == 'questions'" ng-init="InitQuestions()">
+		<p><h3>Hi {{fname}}, please answer all the questions. </h3></p>
+            <form class="form-horizontal" id="formQs"  novalidate>
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <!--<label><h3>{{qSlNo}}</h3></label>-->
+                        <label><h3>Question {{qIndex +1}}</h3></label>
+                    </div>
+                    <div class="col-md-7">
+						<h3><textarea style="border:ridge overflow: hidden" rows="4" cols="70" style="align-content:stretch" readonly>{{qText}} </textarea></h3>
+						<!--<label style="width:50% height:20% border:5px grey margin-left:5% margin-right:5%" ><h3>{{qText}}<h3></label>-->
+					</div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label><h4>Your Response</h4></label>
+                    </div>
+                    <div class="col-md-7">
+						<h3>
+                        <label><input type="radio" name="reply" ng-model="model.reply" value="Never" ng-required="true" /> Never</label>
+                        <label><input type="radio" name="reply" ng-model="model.reply" value="Rarely" ng-required="true" /> Rarely </label>
+                        <label><input type="radio" name="reply" ng-model="model.reply" value="Sometimes" ng-required="true" /> Sometimes</label>
+                        <label><input type="radio" name="reply" ng-model="model.reply" value="MostOften" ng-required="true" /> Most Often</label>
+                        <label><input type="radio" name="reply" ng-model="model.reply" value="Always" ng-required="true" /> Always</label>
+                        </h3>
+						<div class="alert alert-danger" ng-show="(formQs.reply.$touched || formQs.$submitted) && formQs.reply.$error.required">
+                            Please select one of the options above.
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <div class="col-md-offset-2 col-md-5">
+                        <!--  <input type="submit" value="Submit" class="btn btn-primary" ng-click="form.$valid && Register(model)" /> -->
+						<!--<input type="submit" value="Create New User" class="btn btn-primary" ng-click="CreateNewAssessee(model)" ng-disabled="formUser.$invalid || !bEnable" />-->
+                        <input type="submit" value="Next" class="btn btn-primary" ng-click="SubmitQuestions(model)" ng-disabled="formQs.$invalid || formQs.$submitted || !model.reply || !bEnable" />
+                    <!--    <input type="button" value="Back" class="btn btn-primary" ng-click="GotoPrevQuestion(qIndex)" />-->
+						</div>
+                </div>
+
+            </form>
+	    </span> <!--Question details -->
+
+    </div>
+
+    
+    <script>
+        /*
+        <tr ng-repeat="option in Qoptions track by $index">
+    <td >
+        <pre><input name="options" type="radio" /> <b>{{option}}</b></pre>
+    </td>
+</tr>*/
+
+    </script>
+    <script src="./js/ng.js"> </script>
