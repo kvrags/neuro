@@ -1,0 +1,90 @@
+﻿<!--<head>
+    <title></title>
+	<link rel="stylesheet" type="text/css" href="../css/neuro.css">
+</head>-->
+<div ng-controller="ctrlSquares" ng-destroy="onDestroy()">
+	<div class="floatSmall" ng-click="taskExit()"> 
+			<a  class="white" href="./#!workingmemory"> 
+				<div class="floatSmall laborange" >
+					< Tasks 
+				</div>
+			</a>
+	</div>
+	<div>&nbsp </div>	
+	<div  ng-init="Init()">
+		<!-- this selection of task is moved within the controller
+			<div align="center"><p>&nbsp</p>
+			<label><input type="radio" name="Level" ng-click="setDifficultyLevel('0')" checked /> Level 1</label>
+			<label><input type="radio" name="Level" ng-click="setDifficultyLevel('1')" /> Level 2</label>
+			<label><input type="radio" name="Level" ng-click="setDifficultyLevel('2')" /> Level 3</label>
+		</div>
+		-->
+		<div>
+			<p><h3>Task Name : {{taskName}}</h3></p>
+			<p><h3>Instructions : {{taskInstructions}}</h3></p>
+		</div>
+		<div align="center" ng-click="Draw()" >	
+			<table  border="10px" style="height:300px" id="myTable" >
+				<tr ng-repeat="row in array_Table track by $index" style=background-color:{{row_clrs[$index]}}>
+					<td width="60px" ng-repeat="col in row track by $index" align="center"` ng-switch="col" >
+						<!-- if the table display is not proper, check array and low-seed and high seed settings -->
+						<span ng-switch-when="1">
+							<img align="center" src="./res/white_rect.jpg" width="40px" height="40px"/>
+						</span>
+						<span ng-switch-when="0">&nbsp;</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<!--<pre>{{message |json }} </pre>-->
+			<div>&nbsp </div>
+		<div align="center">
+			<form id="formResult">
+				<input type="number" name="btnResult" ng-model="userInput"/>
+				<div class="alert alert-danger" ng-show="(formResult.btnResult.$touched || formResult.$submitted) && formResult.btnResult.$error.required">
+					Your answer is required
+				</div>
+				<input type="button" value="Check" ng-click="checkAnswer()" ng-disabled="disableBtn"/>
+				<div  style="margin-left:20%;text-align:left" id="userResult" ng-hide="hideAnswer">
+						<span ng-if="taskName == 'White Squares Level 1' ">
+							<h4>Squares on last slide : {{message}}</h4>
+							<h4>Hits : {{right}}</h4>
+							<h4>Misses : {{wrong}}</h4>
+						</span>
+						<span ng-if="taskName == 'White Squares Level 2' ">
+							<h4>Squares on last slide : {{message}}</h4>
+							<h4>Hits : {{right}}</h4>
+							<h4>Misses : {{wrong}}</h4>
+						</span>
+					
+						<span ng-if="taskName == 'White Squares Level 3'">
+							<h4>Sum : {{message}}</h4>
+							<h4>Squares on last slide : {{prev_Result}} </h4>
+							<h4>Hits : {{right}}</h4>
+							<h4>Misses : {{wrong}}</h4>
+						</span>
+						<span ng-if="taskName == 'White Squares Level 4'">
+							<h4>Sum : {{message}}</h4>
+							<h4>Squares on last slide : {{prev_Result}} </h4>
+							<h4>Hits : {{right}}</h4>
+							<h4>Misses : {{wrong}}</h4>
+						</span>
+						<span ng-if="taskName == 'White Squares Level 5'">
+							<h4>Sum : {{message}}</h4>
+							<h4>Squares on last slide : {{prev_Result}} </h4>
+							<h4>Squares on before to last slide : {{prev_prev_Result}} </h4>
+							<h4>Hits : {{right}}</h4>
+							<h4>Misses : {{wrong}}</h4>
+						</span>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+   
+        <script>
+            //document.addEventListener("click", Draw());
+        </script>
+
+    <script src="./js/CountSquares-ng.js"> </script>
+	<script src="./js/ng.js"> </script>

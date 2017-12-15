@@ -1,0 +1,31 @@
+﻿<!--<head>
+    <title></title>
+	<link rel="stylesheet" type="text/css" href="../css/neuro.css">
+</head>-->
+
+<div class="floatSmall">
+		<a  class="white" href="./#!workingmemory"> 
+			<div class="floatSmall laborange" >
+				< Task Panel
+			</div>
+		</a>
+</div>	
+
+<div ng-controller="ctrlBlackSquares"  ng-click="Next()">
+	<p>
+		<h2> <!-- style="background-color:aliceblue"-->
+			Follow instructions as they appear below. click on them to continue.
+		</h2>
+	</p>
+		<p><h2>{{message}} </h2> </p>
+	<div ng-hide="!b_ShowTable">
+		<img src="./res/{{imageName}}" width="90%" height="70%"/>
+	</div>
+		<!--<pre> {{nextScreen}} {{message}} </pre>-->
+</div>
+   
+        <script>
+           //document.addEventListener("click", Next());
+        </script>
+
+    <script src="./js/SquaresBlack.js"> </script>
